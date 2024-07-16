@@ -1,0 +1,244 @@
+{
+    "Header": {
+      "title": "We Will Help You",
+      "paragraph": "Welcome to NMT Document Clearings, where efficiency meets excellence! As a premier destination for all your typing needs, we take pride in providing swift and accurate typing services tailored to meet the diverse requirements of our clients.Whether you're in need of document typing, visa application support, or legal paperwork assistance, our dedicated team of professionals is committed to delivering top-notch service."
+    },
+    "About": {
+      "paragraph": "Whether you're in need of document typing, visa application support, or legal paperwork assistance, our dedicated team of professionals is committed to delivering top-notch service. At our state-of-the-art facility, we combine cutting-edge technology with a customer-centric approach to ensure a seamless and hassle-free experience. Trust us to handle your typing tasks with precision and speed, allowing you to focus on what matters most. Welcome to a typing center that prioritizes your time and strives for perfection in every keystroke.",
+      "Why": [
+        "Excellent Customer Service",
+        "Minimizing wait times",
+        "Free from errors",
+        "High-quality services"
+      ],
+      "Why2": [
+        "Knowledgeable Staff",
+        "Multilingual Support",
+        "Security and Confidentiality",
+        "Maintaining transparency"
+      ]
+    },
+    "Gallery": [
+      {
+        "title": "Visa Services",
+        "largeImage": "img/portfolio/01-large.jpg",
+        "smallImage": "img/portfolio/01-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/02-large.jpg",
+        "smallImage": "img/portfolio/02-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/03-large.jpg",
+        "smallImage": "img/portfolio/03-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/04-large.jpg",
+        "smallImage": "img/portfolio/04-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/05-large.jpg",
+        "smallImage": "img/portfolio/05-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/06-large.jpg",
+        "smallImage": "img/portfolio/06-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/07-large.jpg",
+        "smallImage": "img/portfolio/07-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/08-large.jpg",
+        "smallImage": "img/portfolio/08-small.jpg"
+      },
+      {
+        "title": "Project Title",
+        "largeImage": "img/portfolio/09-large.jpg",
+        "smallImage": "img/portfolio/09-small.jpg"
+      }
+    ],
+    "Services": [
+      {
+        "icon": "fa fa-building",
+        "name": "Business Setup",
+        "text": "Embark on your entrepreneurial journey with confidence by choosing NMT for seamless business setup services in the UAE.",
+        "link": "businesssetup"
+      },
+      {
+        "icon": "fa fa-plane",
+        "name": "Visa Services",
+        "text": "Specialize in assisting individuals with visa applications, including typing the necessary forms and supporting documents required for visa processing.",
+        "link": "visaservices"
+      },
+      {
+        "icon": "fa fa-briefcase",
+        "name": "PRO Services",
+        "text": "We ensure Professional PRO services in UAE and seamless business operations, blending local expertise with global standards to foster growth and innovation.",
+        "link": "labourservices"
+      },
+      {
+        "icon": "fa fa-desktop",
+        "name": "Online Services",
+        "text": "With the advancement of technology, many typing centers now offer online application services where customers can fill out forms electronically and have them processed by the center.",
+        "link": "onlineservices"
+      },
+      {
+        "icon": "fa fa-fast-forward",
+        "name": "Express Services",
+        "text": "For urgent requirements, NMT offer express services where documents can be processed and typed quickly for an additional fee.",
+        "link": "expressservices"
+      },
+      {
+        "icon": "fa fa-pie-chart",
+        "name": "Document Consultation",
+        "text": "Providing consultation services to advise clients on the correct procedures for document submission and any requirements they need to fulfill.",
+        "link": "docconsultation"
+      }
+    ],
+    "Testimonials": [
+      {
+        "img": "img/testimonials/01.jpg",
+        "text": "Exceptional service! I needed urgent typing assistance for my project, and the team at NMT delivered beyond my expectations. Highly recommended!",
+        "name": "John Doe"
+      },
+      {
+        "img": "img/testimonials/02.jpg",
+        "text": "I've been relying on NMT for all my typing needs for years now. Their professionalism and accuracy never cease to impress me. They always deliver top-notch results.",
+        "name": "Johnathan Doe"
+      },
+      {
+        "img": "img/testimonials/03.jpg",
+        "text": "I'm so grateful for the excellent service provided by NMT.Their team is not only skilled but also incredibly accommodating.Thank you for your efficiency and reliability!",
+        "name": "John Doe"
+      },
+      {
+        "img": "img/testimonials/04.jpg",
+        "text": "Efficient, accurate  that's how I would describe NMT. Their dedication to quality is evident in every project they undertake. Definitely my go-to typing center!",
+        "name": "Johnathan Doe"
+      },
+      {
+        "img": "img/testimonials/05.jpg",
+        "text": "I stumbled upon NMT while searching for typing assistance online. From the moment their team exhibited professionalism and expertise. Thanks for your excellent service!",
+        "name": "John Doe"
+      },
+      {
+        "img": "img/testimonials/06.jpg",
+        "text": "Thankfully, I discovered NMT. Their professionalism have made my life so much easier. Thank you for being a reliable partner in my business journey!",
+        "name": "Johnathan Doe"
+      }
+    ],
+    "Team": [
+      {
+        "img": "img/team/01.jpg",
+        "name": "Muhammed Sabith",
+        "job": "Manager & Partner"
+      },
+      {
+        "img": "img/team/02.jpg",
+        "name": "Arshad",
+        "job": "Senior Typist, Partner"
+      },
+      {
+        "img": "img/team/03.jpg",
+        "name": "Sa'ad ",
+        "job": "Junior Typist"
+      },
+      {
+        "img": "img/team/04.jpg",
+        "name": "Muhammed Ameen",
+        "job": "Web Developer"
+      }
+    ],
+    "loginstatus":"false",
+    "Contact": {
+      "address": "New Industrial Area, Umm Al Toub, Al Rafa City, Umm Al Quwain, UAE",
+      "phone": "+971 588207407",
+      "email": "nmtuaq@gmail.com",
+      "facebook": "fb.com",
+      "facebookicon": "fa fa-facebook",
+      "twitter": "twitter.com",
+      "youtube": "youtube.com"
+    },
+    "Features": [
+      {
+        "icon": "fa fa-handshake",
+        "title": "Humble Dealing",
+        "text": "Our commitment is not just to provide a service but to build lasting relationships based on trust and satisfaction."
+      },
+      {
+        "icon": "fa fa-fast-forward",
+        "title": "Fast Solutions",
+        "text": "We understand the value of time in today's fast-paced world, and our commitment is to deliver efficient and swift services without compromising on accuracy."
+      },
+      {
+        "icon": "fa fa-users",
+        "title": "Proffessional Team",
+        "text": "Our team of dedicated professionals brings a wealth of expertise and knowledge to ensure that your typing needs are met with the highest standards."
+      },
+      {
+        "icon": "fa fa-comments",
+        "title": "Swift Responses",
+        "text": "We understand the urgency and importance of your questions, and our dedicated team is here to provide you with a speedy and efficient reply."
+      }
+    ],
+    "Clients": [
+      {
+        "image": "img/Haut Coffre New.png",
+        "title": "Haut Coffre",
+        "text": "Our commitment is not just to provide a service but to build lasting relationships based on trust and satisfaction."
+      },
+      {
+        "image": "img/THEGATE.png",
+        "title": "The Gate Plastics",
+        "text": "We understand the value of time in today's fast-paced world, and our commitment is to deliver efficient and swift services without compromising on accuracy."
+      },
+      {
+        "image": "img/UNIQUE (3) (1).png",
+        "title": "Unique Engineering",
+        "text": "Our team of dedicated professionals brings a wealth of expertise and knowledge to ensure that your typing needs are met with the highest standards."
+      },
+      {
+        "image": "img/rapid-logo.jpg",
+        "title": "Rapid Powder Coating",
+        "text": "Our team of dedicated professionals brings a wealth of expertise and knowledge to ensure that your typing needs are met with the highest standards."
+      },
+      {
+        "image": "img/REX (3).png",
+        "title": "REX Interiors",
+        "text": "Our team of dedicated professionals brings a wealth of expertise and knowledge to ensure that your typing needs are met with the highest standards."
+      },
+      {
+        "image": "img/innerspace.png",
+        "title": "Inner Space Furniture",
+        "text": "We understand the urgency and importance of your questions, and our dedicated team is here to provide you with a speedy and efficient reply."
+      },
+      {
+        "image": "img/SMI.jpg",
+        "title": "SMI Coated",
+        "text": "Our commitment is not just to provide a service but to build lasting relationships based on trust and satisfaction."
+      },
+      {
+        "image": "img/Nuvac.png",
+        "title": "Nuvac Global Trading",
+        "text": "We understand the value of time in today's fast-paced world, and our commitment is to deliver efficient and swift services without compromising on accuracy."
+      },
+      {
+        "image": "img/acevac middleeast.png",
+        "title": "Ace Vac Middle East",
+        "text": "Our team of dedicated professionals brings a wealth of expertise and knowledge to ensure that your typing needs are met with the highest standards."
+      },
+      {
+        "image": "img/Voltex.png",
+        "title": "VOLTEX",
+        "text": "We understand the urgency and importance of your questions, and our dedicated team is here to provide you with a speedy and efficient reply."
+      }
+    ]
+  }

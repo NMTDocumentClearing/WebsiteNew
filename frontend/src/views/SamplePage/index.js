@@ -25,6 +25,7 @@ const SamplePage = () => {
     const [email, setEmail] = useState('')
     const [tokenModalOpen, setTokenModalOpen] = useState(false)
 
+    const adminInfrom = localStorage.getItem('adminInfo')
     const id = adminInfo._id
 
     useEffect(()=>{

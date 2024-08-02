@@ -137,24 +137,28 @@
     ],
     "Team": [
       {
-        "img": "img/team/01.jpg",
-        "name": "Muhammed Sabith",
-        "job": "Manager & Partner"
+        "img": "img/team/MUHAMMED SABITH.jpeg",
+        "name": "MUHAMMED SABITH TP",
+        "job": "Public Relations Officer",
+        "contact": "0588 207 398"
       },
       {
-        "img": "img/team/02.jpg",
-        "name": "Arshad",
-        "job": "Senior Typist, Partner"
+        "img": "img/team/ARSHAD ODAN new.jpeg",
+        "name": "ARSHAD ODAN",
+        "job": "HR Manager",
+        "contact": "0588 207 407"
       },
       {
-        "img": "img/team/03.jpg",
-        "name": "Sa'ad ",
-        "job": "Junior Typist"
+        "img": "img/team/SAHADnew.jpeg",
+        "name": "MUHAMMED SAHAD",
+        "job": "Senior Typist",
+        "contact": "0588 027 356"
       },
       {
-        "img": "img/team/04.jpg",
-        "name": "Muhammed Ameen",
-        "job": "Web Developer"
+        "img": "img/team/AMEEN NEW.jpg",
+        "name": "MUHAMMED AMEEN KP",
+        "job": "Web Developer and Typist",
+        "contact": "0521 160 659"
       }
     ],
     "loginstatus":"false",

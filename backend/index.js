@@ -1,6 +1,5 @@
 const express = require("express")
 const dotenv = require("dotenv")
-require('dotenv').config();
 const cors = require('cors')
 const connectDB = require("./config/db")
 // const userRoutes = require('./routes/userRoutes')
@@ -10,6 +9,10 @@ const userRoutes = require('./routes/userRoutes')
 const adminRoutes = require('./routes/adminRoutes')
 
 
+dotenv.config();
+connectDB();
+
+console.log("JWT Secret from .env:", process.env.USER_JWT_SECRET);
 
 const app = express();
 const server = require('http').createServer(app)
@@ -17,22 +20,22 @@ const server = require('http').createServer(app)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
-dotenv.config();
-connectDB();
+console.log(process.env.FRONT_END_URL)
 
 app.use(cors({
-    origin: process.env.FRONT_END_URL
-}))
+        origin: 'https://nmtdocumentclearing.com', // Adjust as needed
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
-app.get("/", (req, res) => {
-    console.log("nowewjkfwlfwklfwnl");
-    res.send("API is running now also")
-})
+app.options('*', cors());
 
-app.use('/',userRoutes)
-app.use('/admin',adminRoutes)
+
+
+app.use('/api/',userRoutes)
+app.use('/api/admin',adminRoutes)
 
 
 const PORT = process.env.PORT || 5000
 
-server.listen(PORT,console.log(`Server started on PORT ${PORT}`));
+server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));

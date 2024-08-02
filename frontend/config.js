@@ -1,7 +1,8 @@
 import axios from 'axios'
-const baseURL = "http://localhost:3000"
+const baseURL = "https://nmtdocumentclearing.com";
 const cloudinaryUpload = "https://api.cloudinary.com/v1_1/dp7ydtvg8/image/upload"
 const axiosInstance = axios.create({ baseURL });
+
 
 const configure = axiosInstance.interceptors.request.use((req)=>{
                     if(localStorage.getItem('userInfo')){

@@ -4,7 +4,7 @@ import baseURL from "../config";
 const adminaxiosInstance = axios.create({
     baseURL: baseURL, 
   });
-  
+
    adminaxiosInstance.interceptors.request.use(
     (config) => {
         const tokenInfo = localStorage.getItem('adminInfo')

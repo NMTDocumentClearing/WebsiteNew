@@ -58,7 +58,7 @@ function MainRoutes() {
             <Route element={<MinimalLayout />}>
                     <Route path='/*' element={<Error />} />
                     <Route path='/login' element={<AuthLogin />} />
-                    <Route path='/signup' element={<AuthRegister />} />
+                    {/* <Route path='/signup' element={<AuthRegister />} /> */}
             </Route>
       
       

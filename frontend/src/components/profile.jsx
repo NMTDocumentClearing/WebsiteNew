@@ -110,7 +110,7 @@ export const Profile = () => {
 
   return (
     <>
-    <div className="login_new" style={{backgroundColor:'black'}}>
+    <div className="login_new" style={{backgroundColor:'#0B0E33', marginTop:"70px"}}>
         <div className="login_div" style={{marginTop:'80px'}}>
         <form onSubmit={handleSubmit}>
             <img src="img/profile.png" alt="Logo" style={{ display: "block", margin: "auto", width: "70px", height: "70px", marginBottom: "5px",borderRadius:'10px' }} />

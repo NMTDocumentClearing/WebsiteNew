@@ -6,7 +6,7 @@ export const Team = (props) => {
       <div className="container">
         <div className="col-md-8 col-md-offset-2 section-title">
           <h2 className="team-heading" id="team-head">Meet the Team</h2>
-          <p>
+          <p style={{color:"white"}}>
              Discover a diverse group of professionals committed to providing efficient and reliable typing services tailored to your needs.
           </p>
         </div>
@@ -18,9 +18,9 @@ export const Team = (props) => {
                     {" "}
                     <img src={d.img} alt="..." className="team-img" style={{borderRadius:'10px'}} />
                     <div className="caption">
-                      <h4 style={{color:"black"}}>{d.name}</h4>
-                      <p style={{color:"black"}}>{d.job}</p>
-                      <p style={{color:"black"}}>{d.contact}</p>
+                      <h4 style={{color:"white"}}>{d.name}</h4>
+                      <p style={{color:"white"}}>{d.job}</p>
+                      <p style={{color:"white"}}><span style={{color:"#7e8beb "}}>Cont.</span> {d.contact}</p>
                     </div>
                   </div>
                 </div>

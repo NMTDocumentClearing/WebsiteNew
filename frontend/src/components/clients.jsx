@@ -35,6 +35,7 @@ export const Clients = (props) => {
                   textAlign: 'center',
                   paddingBottom: 2,
                   minHeight: '150px', // Adjust the minimum height as needed
+                  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)'
                 }}
               >
                 <Box

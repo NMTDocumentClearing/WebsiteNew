@@ -83,14 +83,7 @@ const checkLocalStorage = () => {
               <Grid item xs={12}>
                 <AuthLogin />
               </Grid>
-              <Grid container justifyContent="flex-start" sx={{ mt: theme.spacing(2), mb: theme.spacing(1) }}>
-                <Grid item>
-                
-                  <Typography variant="subtitle2" component={Link} to="/admin/signup" color="secondary" sx={{ textDecoration: 'none', pl: 2 }} style={{fontSize:"10px",textAlign:"center"}}>
-                    Create new account
-                  </Typography>
-                </Grid>
-              </Grid>
+              
             </Grid>
           </CardContent>
         </Card>

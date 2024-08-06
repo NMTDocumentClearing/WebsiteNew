@@ -104,7 +104,6 @@ const AccountsPage = () => {
           }
         } catch (error) {
           if(error.response.data.message === "Invalid token"){
-            console.log("sdgvjajavjahc");
             setTokenModalOpen(true)
           }
         }
@@ -207,7 +206,9 @@ const AccountsPage = () => {
             }
           }
         } catch (error) {
-          console.log(error);
+          if(error.response.data.message === "Invalid token"){
+            setTokenModalOpen(true)
+          }
         }
         
         

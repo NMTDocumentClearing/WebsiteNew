@@ -95,7 +95,7 @@ hr {
 }
 #menu.navbar-default {
   background-color: white;
-  padding: 40px 2px;
+  padding: 25px 2px;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   transition: background-color 0.5s ease;
@@ -112,6 +112,12 @@ hr {
   font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand2 {
+    margin-left:18px;
+  }
 }
 
 #menu a.navbar-brand3 {
@@ -292,6 +298,8 @@ a:focus,
   position: relative;
 }
 
+
+
 .header-container {
   width: 100%;
   padding: 10px; 
@@ -346,25 +354,159 @@ header .intro-text {
   text-align: center;
 }
 
-#features {
-  background: #f7fbff;
+#alerts {
+  background: #100035;
   padding: 50px 0px;
 }
+
+#features {
+  background: #100035;
+  padding: 50px 0px;
+  max-width: 100%;
+}
+
+#header {
+  background: #100035;
+  padding: 50px 0px;
+}
+
 #features i.fa {
   font-size: 38px;
   margin-bottom: 20px;
   transition: all 0.5s;
-  color: #fff;
+  color: #060040;
   width: 100px;
   height: 100px;
   padding: 30px 0;
   border-radius: 50%;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
+.features-section {
+  padding: 50px 0; /* Add vertical padding */
+}
+
+.features-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Section title styling */
+.features-section .section-title {
+  margin-bottom: 30px;
+}
+
+/* Grid container for cards */
+.features-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center the cards horizontally */
+}
+
+/* Card styling */
+.features-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 200px; /* Minimum height for consistent card height */
+  width: calc(25% - 20px); /* Four cards per row, adjusted for gap */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pseudo-element for background animation */
+.features-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(to top, #2b0051, #190052);
+  z-index: 0;
+  transition: height 0.5s ease-out;
+}
+
+/* Ensure the content is above the background animation */
+.features-card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover effect */
+.features-card:hover::before {
+  height: 100%;
+}
+
+.features-card:hover h3, .features-card:hover p {
+  color: white !important;
+}
+
+.features-card i {
+  font-size: 30px;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #0c0023, #200048);
+  padding: 30px;
+  border-radius: 50%;
+}
+
+/* Text styling */
+.features-card h3 {
+  margin-top: 15px;
+  font-weight: bold;
+  color: rgb(13, 0, 66);
+  transition: color 0.3s ease;
+}
+
+.features-card p {
+  color: rgb(13, 0, 66);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .features-card {
+    width: calc(33.33% - 20px); /* Three cards per row */
+  }
+}
+
+@media (max-width: 992px) { /* Medium screens */
+  .features-card {
+    width: calc(50% - 20px); /* Two cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .features-card {
+    width: calc(50% - 20px); /* Two cards per row */
+  }
+}
+
+@media (max-width: 576px) {
+  .features-card {
+    width: calc(100% - 20px); /* One card per row */
+  }
+}
+
+/* Icon styling */
+
+
 #about {
   padding: 100px 0;
+  max-width: 100%;
 }
 
 #about h3 {
@@ -411,21 +553,192 @@ header .intro-text {
   margin: 30px 0;
 }
 
+
+#businesssetup {
+  background-color: #100035;
+  padding: 100px 0px;
+}
+
+#businesssetup img {
+  width:400px;
+  margin-top: 10px;
+  background: transparent;
+  border-right: 0;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
+}
+
+#labourservice {
+  background-color: white;
+  padding: 100px 0px;
+}
+
+#labourservice img {
+  width:540px;
+  margin-top: 10px;
+  background: transparent;
+  border-right: 0;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.0);
+}
+
+
+
+
+
+
+/* General styles for the service card container */
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust gap between cards */
+}
+
+.service-card {
+  position: relative; /* Required for positioning the pseudo-element */
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(33.33% - 20px); /* Three cards per row */
+  min-height: 300px; /* Set minimum height */
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #100035; /* Card background color */
+  transition: box-shadow 0.3s ease;
+  overflow: hidden; /* Ensure pseudo-element doesn't overflow */
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Background color after hover */
+  z-index: 0;
+  transition: top 0.5s ease-out;
+}
+
+
+
+.service-card .service-desc {
+  position: relative;
+  z-index: 1; /* Ensure content is above the pseudo-element */
+  color: #ffffff; /* Initial text color */
+  transition: color 0.3s ease;
+}
+
+.service-card:hover::before {
+  top: 0;
+}
+
+.service-card i {
+  font-size: 30px;
+  color: #f8f4ff; /* Icon color before hover */
+  padding: 30px;
+  border-radius: 50%;
+  background-color: transparent; /* No background color initially */
+  transition: color 0.3s ease, background-color 0.3s ease;
+  z-index: 1;
+  position: relative;
+}
+
+#servicetitle{
+  color: #ffffff; /* Text color before hover */
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.service-card:hover::before {
+  top: 0; /* Moves background color from top to bottom */
+}
+
+.service-card:hover .service-desc h4{
+  color: #100035; /* Text color after hover */
+  background-color: transparent;
+}
+
+.service-card:hover #servicetext {
+  color: #100035; /* Text color after hover */
+}
+
+.service-card:hover #servicetitle {
+  color: #100035; /* Text color after hover */
+}
+
+.service-card:hover i {
+  color: #100035; /* Icon color after hover */
+  background-color: #ffffff; /* Icon background after hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Medium screens */
+  .service-card {
+    flex: 1 1 calc(50% - 20px); /* Two cards per row */
+  }
+}
+
+@media (max-width: 768px) { /* Small screens */
+  .service-card {
+    flex: 1 1 calc(100% - 20px); /* One card per row */
+  }
+}
+
+.service-card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover effect */
+.service-card:hover::before {
+  height: 100%;
+  top: 0; 
+}
+
+
+/* Hover effects */
+.service-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover i {
+  color: #ffffff; /* Icon color after hover */
+  background-color: #100035; /* Icon background after hover */
+}
+
+.service-card:hover h3,
+.service-card:hover p {
+  color: #100035; /* Text color after hover */
+}
+
+
+/* Hover effects */
+.service-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover i {
+  color: #ffffff; /* Icon color after hover */
+  background-color: #100035; /* Icon background after hover */
+}
+
+.service-card:hover h3,
+.service-card:hover p {
+  color: #100035; /* Text color after hover */
+}
+
+
+
 #services {
+  max-width: 100%;
   padding: 100px 0;
   position: relative;
   color: #fff;
   overflow: hidden;
 }
 
-#services .video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+
 
 #services .video-background video {
   width: 100%;
@@ -464,10 +777,10 @@ header .intro-text {
   width: 120px;
   height: 120px;
   padding: 40px 0;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ddd8e6 100%);
   border-radius: 50%;
   color: #fff;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 #services h3 {
   font-weight: 500;
@@ -483,6 +796,7 @@ header .intro-text {
 #portfolio {
   padding: 100px 0;
 }
+
 .portfolio-item {
   margin: 1px -15px 0 -14px;
   padding: 0;
@@ -529,11 +843,14 @@ header .intro-text {
   opacity: 1;
 }
 #testimonials {
+  max-width: 100%;
   padding: 100px 0;
-  background: #f3f3f3;
+  background: #100035;
 }
+
+
 #testimonials i {
-  color: #e6e6e6;
+  color: #ffffff;
   font-size: 32px;
   margin-bottom: 20px;
 }
@@ -571,10 +888,36 @@ header .intro-text {
   color: #212121;
 }
 /* Team Section */
+
+#team .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#team {
+  max-width: 100%;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.thumbnail {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
 #team {
   padding: 100px 0;
+  background: #100035;
 }
+
 #team h4 {
+  color: #ffffff;
   margin: 5px 0;
 }
 #team .team-img {
@@ -585,7 +928,7 @@ header .intro-text {
   border: 0;
 }
 #team-head {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-family: 'Righteous', sans-serif; 
   font-size: 2em; 
   font-weight: 400; 
@@ -597,6 +940,15 @@ header .intro-text {
   color: #888;
 }
 
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Apply flicker effect on hover */
+.team-img:hover {
+  animation: flicker 0.5s ease-in-out;
+}
 
 
 .login-container {
@@ -619,7 +971,7 @@ header .intro-text {
   align-items: center;
   padding: 30px 0px;
   min-height: 100vh;
-  background-color: #050064;
+  background-color: #100035;
 }
 
 
@@ -631,8 +983,6 @@ header .intro-text {
   width: 80%;
   padding: 5rem;
   border-radius: 3rem;
-  border-color: red;
-  background-color: #ffffff;
 }
 
 .login_div {
@@ -749,9 +1099,10 @@ input.styled2-placeholder::placeholder {
 #clients {
   position: relative; /* Required for the pseudo-element to position correctly */
   padding: 100px 0 60px;
-  background: url('/img/ClientBack.jpg') no-repeat center center; 
+  /* background: url('/img/ClientBack.jpg') no-repeat center center;  */
+
   background-size: cover;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 #clients::before {
@@ -772,8 +1123,9 @@ input.styled2-placeholder::placeholder {
 
 
 #contact {
+  max-width: 100%;
   padding: 100px 0 60px;
-  background: url('/img/contactBackground.jpg') no-repeat center center; 
+  /* background: url('/img/contactBackground.jpg') no-repeat center center;  */
   background-size: cover;
   color: rgba(255, 255, 255, 0.75);
 }
@@ -903,6 +1255,7 @@ label {
 }
 /* Footer Section*/
 #footer {
+  max-width: 100%;
   background: #f6f6f6;
   padding: 30px 0;
 }
@@ -1018,4 +1371,16 @@ label {
     width: 100%;
   }
 }
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns by default */
+  gap: 20px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+
 

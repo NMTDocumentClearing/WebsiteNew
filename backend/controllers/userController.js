@@ -64,14 +64,8 @@ const registerUser = asyncHandler(async (req,res)=>{
 
     if(user){
         // console.log(user);
-        res.status(201).json({
-            _id:user._id,
-            fullname: user.fullname,
-            phonenumber: user.phonenumber,
-            email: user.email,
-            token: userGenerateToken(user._id),
-            status:user.status,
-        })
+        res.status(200).json(`Your request is waiting for administrator approval`)
+        
     }else{
         res.status(400)
         throw new Error('Error occured! Please try again')

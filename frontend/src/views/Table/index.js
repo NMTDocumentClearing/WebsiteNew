@@ -123,7 +123,6 @@ const TablePage = () => {
         }
       } catch (error) {
         if(error.response.data.message === "Invalid token"){
-          console.log("sdgvjajavjahc");
           setTokenModalOpen(true)
         }
       }
@@ -186,7 +185,9 @@ const TablePage = () => {
             setFormError('All Fields Required....!')
         }
       } catch (error) {
-        console.log(error);
+        if(error.response.data.message === "Invalid token"){
+          setTokenModalOpen(true)
+        }
       }
  }
 

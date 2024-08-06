@@ -28,7 +28,7 @@ function BusinessSetup() {
     
     <div >
         <Navigation data={userInfo.fullname} status={'No Home'} />
-        <Business />
+        <Business data={landingPageData.Business}/>
     </div>
   )
 }

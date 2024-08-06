@@ -39,7 +39,6 @@ const SamplePage = () => {
           }
         } catch (error) {
           if(error.response.data.message === "Invalid token"){
-            console.log("sdgvjajavjahc");
             setTokenModalOpen(true)
         }
         }
@@ -60,7 +59,7 @@ const SamplePage = () => {
         
     };
 
-    const deliverTOLogin = ()=>{
+  const deliverTOLogin = ()=>{
       localStorage.removeItem('adminInfo');
       navigate('/admin/login')
   }
@@ -170,3 +169,4 @@ const SamplePage = () => {
 };
 
 export default SamplePage;
+

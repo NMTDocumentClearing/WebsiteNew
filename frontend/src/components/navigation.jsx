@@ -25,13 +25,7 @@ export const Navigation = (props) => {
     }
 
     const handleScroll = () => {
-        const headerHeight = document.getElementById('header').offsetHeight;
-        const scrollTop = document.querySelector('.user-home').scrollTop;
-        if (scrollTop > headerHeight) {
-          setScrolled(true);
-        } else {
-          setScrolled(false);
-        }
+        
       };
     
       useEffect(() => {
@@ -54,7 +48,7 @@ export const Navigation = (props) => {
     
 
     return (
-        <nav id="menu" className={`navbar navbar-default navbar-fixed-top  ${isCollapsed ? 'navbar-collapsed' : ''} ${scrolled ? 'navbar-scrolled' : ''}`} style={{marginBottom:"0px"}}>
+        <nav id="menu" className={`navbar navbar-default navbar-fixed-top  ${isCollapsed ? 'navbar-collapsed' : ''} ${scrolled ? 'navbar-scrolled' : 'navbar-scrolled'}`} style={{marginBottom:"0px"}}>
         <div className="container">
         <div className="navbar-header">
           <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onClick={toggleCollapse}>
@@ -71,10 +65,10 @@ export const Navigation = (props) => {
                 style={{ width: '55px', height: '55px', marginRight: '0px' }}
               />
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0' }}>
-              <a className="navbar-brand page-scroll" href="#page-top" style={{ color: scrolled ? 'white' : '#000066', paddingBottom: '0px' }}>
+              <a className="navbar-brand page-scroll" href="#page-top" style={{ color: scrolled ? 'white' : 'white', paddingBottom: '0px' }}>
                 NMT
               </a>
-              <a className="navbar-brand2 page-scroll" href="#page-top" style={{ color: scrolled ? 'white' : '#000066', alignSelf: 'flex-start', marginTop:'-7px', justifyContent: 'flex-start' }}>
+              <a className="navbar-brand2 page-scroll" href="#page-top" style={{ color: scrolled ? 'white' : 'white', alignSelf: 'flex-start', marginTop:'-7px', justifyContent: 'flex-start' }}>
                 Document Clearing
               </a>
               </div>
@@ -87,43 +81,43 @@ export const Navigation = (props) => {
           <ul className="nav navbar-nav navbar-right">
             {props.status !== 'No Home' &&
               <li className="nav-item">
-                <a href="#features" style={{ fontWeight: "bold", color: scrolled ? 'white' : '#000066' }} className="page-scroll">Features</a>
+                <a href="#features" style={{ fontWeight: "bold", color: scrolled ? 'white' : 'white' }} className="page-scroll">Features</a>
               </li>
             }
             {props.status !== 'No Home' &&
               <li>
-                <a href="#about" style={{ fontWeight: "bold", color: scrolled ? 'white' : '#000066' }} className="page-scroll">About</a>
+                <a href="#about" style={{ fontWeight: "bold", color: scrolled ? 'white' : 'white' }} className="page-scroll">About</a>
               </li>
             }
             {props.status !== 'No Home' &&
               <li className="nav-item">
-                <a href="#services" style={{ fontWeight: "bold", color: scrolled ? 'white' : '#000066' }} className="page-scroll">Services</a>
+                <a href="#services" style={{ fontWeight: "bold", color: scrolled ? 'white' : 'white' }} className="page-scroll">Services</a>
               </li>
             }
             {props.status !== 'No Home' &&
               <li className="nav-item">
-                <a href="#testimonials" style={{ fontWeight: "bold", color: scrolled ? 'white' : '#000066' }} className="page-scroll">Testimonials</a>
+                <a href="#testimonials" style={{ fontWeight: "bold", color: scrolled ? 'white' : 'white' }} className="page-scroll">Testimonials</a>
               </li>
             }
             {props.status !== 'No Home' &&
               <li className="nav-item">
-                <a href="#team" style={{ fontWeight: "bold", color: scrolled ? 'white' : '#000066' }} className="page-scroll">Team</a>
+                <a href="#team" style={{ fontWeight: "bold", color: scrolled ? 'white' : 'white' }} className="page-scroll">Team</a>
               </li>
             }
             {props.status !== 'No Home' &&
               <li className="nav-item">
-                <a href="#contact" style={{ fontWeight: "bold", color: scrolled ? 'white' : '#000066' }} className="page-scroll">Contact</a>
+                <a href="#contact" style={{ fontWeight: "bold", color: scrolled ? 'white' : 'white' }} className="page-scroll">Contact</a>
               </li>
             }
             
               <li className="nav-item">
-                <a href="/" style={{  fontWeight: "bolder", color: scrolled ? 'white' : '#000066' }} className="page-scroll">Home</a>
+                <a href="/" style={{  fontWeight: "bolder", color: scrolled ? 'white' : 'white' }} className="page-scroll">Home</a>
               </li>
             
             {props.data !== null && props.data !== undefined ?
             
               <li className={`nav-item dropdown ${dropdownOpen ? 'open' : ''}`}>
-                <a href=" " style={{ fontWeight: "bolder", color: scrolled ? 'white' : '#000066' }} className="dropdown-toggle page-scroll" role="button" aria-haspopup="true" aria-expanded={dropdownOpen} onClick={toggleOptions}>
+                <a href=" " style={{ fontWeight: "bolder", color: scrolled ? 'white' : 'white' }} className="dropdown-toggle page-scroll" role="button" aria-haspopup="true" aria-expanded={dropdownOpen} onClick={toggleOptions}>
                   Options <span className="caret"></span>
                 </a>  
                 <ul className="dropdown-menu">

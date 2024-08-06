@@ -11,6 +11,8 @@ import JsonData from "../../data/data.json";
 import { getIdExpiringLabours } from '../../api/userAPI';
 import { Alerts } from '../../components/alerts';
 import { Clients } from '../../components/clients';
+import { BusinessSetup } from '../../components/businessSetup';
+import { LabourService } from '../../components/labourService';
 
 
 
@@ -71,14 +73,19 @@ function HomePage() {
           <Navigation data={userInfo.fullname}/> :
           <Navigation data={null}/>
         }
-        <Header data={landingPageData.Header} />
+        { userInfo && userInfo.fullname ?
+        null :
+        <Header data={landingPageData.Header} /> 
+        }
         { userInfo && userInfo.fullname ?
           <Alerts data={landingPageData.Features} idExpiringData={idExpiringLabours} labourExpiringData={labourExpiringLabours} documentExpiring={documentsExpiring} />:
           null
         }
-        <Features data={landingPageData.Features} />
         <About data={landingPageData.About} />
+        <Features data={landingPageData.Features} />
         <Services data={landingPageData.Services} />
+        <BusinessSetup data={landingPageData.About} />
+        <LabourService data={landingPageData.About} />
         <Team data={landingPageData.Team} />
         <Clients data={landingPageData.Clients} />
         <Testimonials data={landingPageData.Testimonials} />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link,useLocation,useParams } from 'react-router-dom';
+import { Link,useLocation,useNavigate,useParams } from 'react-router-dom';
 import { FaCheck } from "react-icons/fa";
 import { MdOutlineStorage } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
@@ -19,6 +19,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { IoLockClosed } from "react-icons/io5";
 
 // project import
 import Breadcrumb from '../../components/adminComponents/Breadcrumb';
@@ -47,6 +48,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
 
+  
+
+  
 
   // const moment = require('moment');
 
@@ -62,6 +66,7 @@ const DocumentsPage = () => {
   const [deleted, setDeleted] = useState(false)
   const [edited, setEdited] = useState(false)
   const [successMessage, setSuccessMessage] = useState('')
+  const [tokenModalOpen, setTokenModalOpen] = useState(false)
 
   
 
@@ -80,19 +85,30 @@ const DocumentsPage = () => {
 
  useEffect(()=>{
   async function getUserData(){
+    try {
       if(id !== ''){
         const {data} = await getUserDatas(id)
         if(data){
             setUserData(data.data)
         }
       }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
+    }
   }
   getUserData()
 
 },[deleted,edited])
 
+const navigate = useNavigate()
 
 
+const deliverTOLogin = ()=>{
+  localStorage.removeItem('adminInfo');
+  navigate('/admin/login')
+}
 
 
  const handleEditmodalSubmit = (async (e) =>{
@@ -102,13 +118,19 @@ const DocumentsPage = () => {
     const {type,documentNumber,issued,expiry} = editModalData
     const userId = id
     // console.log(name,nationality,image_url,public_id,position,idCardExpiry,companyName,labourCardExpiry,id,_id);
-    const {data} = await editDocument(type,documentNumber,issued,expiry,userId)
-    if(data){
-      setSuccessMessage('Document Edited Successfully')
-      setEditModalOpen(false)
-      setSuccessOpen(true)
-      setEdited(!edited)
-      console.log(data);
+    try {
+      const {data} = await editDocument(type,documentNumber,issued,expiry,userId)
+      if(data){
+        setSuccessMessage('Document Edited Successfully')
+        setEditModalOpen(false)
+        setSuccessOpen(true)
+        setEdited(!edited)
+        console.log(data);
+      }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
     }
 })
 
@@ -128,7 +150,9 @@ const handleDeleteButtom = async (_id)=>{
                  }
 
           } catch (error) {
-            console.error('Error deleting image:', error);
+            if(error.response.data.message === "Invalid token"){
+              setTokenModalOpen(true)
+            }
           }
 }
 
@@ -143,9 +167,15 @@ useEffect(()=>{
       setStatusChangeDocument(row.type)
         const getChangeStatus = async()=>{
           if(row.status === 'Active'){
-            const {data} = await changeDocumentStatus(userData._id,row.type)
-            if(data){
-              console.log(data);
+            try {
+              const {data} = await changeDocumentStatus(userData._id,row.type)
+              if(data){
+                console.log(data);
+              }
+            } catch (error) {
+              if(error.response.data.message === "Invalid token"){
+                setTokenModalOpen(true)
+             }
             }
           }
         }
@@ -418,6 +448,38 @@ useEffect(()=>{
             </div>
         </Modal>
       )}
+
+{tokenModalOpen && (
+        <Modal open={tokenModalOpen} onClose={() => setTokenModalOpen(false)}>
+            <div className='text-center'>
+                <IoLockClosed size={56} className='mx-auto text-red-600' style={{color:"red",fontSize:"40px", width:"30px",height:"30px"}}></IoLockClosed>
+                <div className='mx-auto my-4 w-48'>
+                    <h3 className='text-lg font-thin text-gray-800 '>You Token Expired</h3>
+                    <p className='text-lg font-thin text-gray-800 '>Please Login Again</p>
+                </div>
+                <div className="flex gap-4">
+                    
+                        <button
+                            onClick={deliverTOLogin}
+                            style={{
+                                backgroundColor: '#215AFF', // Red-500
+                                color: '#FFFFFF', 
+                                fontWeight: '500', // Thin
+                                // Shadow-lg
+                                padding: '0.25rem 1rem', // p-1
+                                width: '100%', // w-full
+                                borderRadius: '0.375rem', // Rounded-md (default value)
+                                transition: 'background-color 0.2s ease-in-out', // Hover effect
+                                cursor: 'pointer' // Hover effect
+                            }}
+                            >
+                            Login
+                            </button>
+                    
+                </div>
+            </div>
+        </Modal>
+    )}
     </>
   );
 };

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useContext } from 'react';
-import { Link,useLocation,useParams } from 'react-router-dom';
+import { Link,useLocation,useNavigate,useParams } from 'react-router-dom';
 import { FaCheck } from "react-icons/fa";
 import { MdOutlineStorage } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
@@ -20,6 +20,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {BsFillCheckCircleFill} from 'react-icons/bs'
+import { IoLockClosed } from "react-icons/io5";
 
 // project import
 import Breadcrumb from '../../components/adminComponents/Breadcrumb';
@@ -102,6 +103,8 @@ const LabourPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [totalPages, setTotalPages]= useState(1)
 
+  const [tokenModalOpen, setTokenModalOpen] = useState(false)
+
   const [page, setPage] = useState(1);
   const rowsPerPage = 5;
 
@@ -120,12 +123,18 @@ const LabourPage = () => {
 
   useEffect(()=>{
     async function getUsersData(){
+      try {
         // const {laboursData} = await getLaboursList(id)
         const {data} = await getUsersDatas()
         if(data){
             // console.log(data.data);
             setUsersData(data.data)
         }
+      } catch (error) {
+        if(error.response.data.message === "Invalid token"){
+          setTokenModalOpen(true)
+        }
+      }
     }
     getUsersData()
 
@@ -133,6 +142,7 @@ const LabourPage = () => {
 
  useEffect(()=>{
   async function getUserData(){
+    try {
       if(id !==''){
         const {data} = await getUserDatas(id)
         if(data){
@@ -140,6 +150,11 @@ const LabourPage = () => {
             setUserData(data.data)
         }
       }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
+    }
   }
   getUserData()
 
@@ -147,17 +162,29 @@ const LabourPage = () => {
 
 useEffect(()=>{
   async function getLabourData(){
-    const {data} = await getLaboursList(id)
-    if(data){
-      setLabourdata(data.data)
-      setTotalPages(Math.ceil(data.data.length/rowsPerPage))
+    try {
+      const {data} = await getLaboursList(id)
+      if(data){
+        setLabourdata(data.data)
+        setTotalPages(Math.ceil(data.data.length/rowsPerPage))
+      }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
     }
   }
   getLabourData()
   async function getLaboursData(){
-    const {data} = await getAllLaboursList()
-    if(data){
-      setLaboursData(data.data)
+    try {
+      const {data} = await getAllLaboursList()
+      if(data){
+        setLaboursData(data.data)
+      }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
     }
   }
   getLaboursData()
@@ -179,23 +206,30 @@ const paginatedData = filteredData.slice((page - 1) * rowsPerPage, page * rowsPe
 
 const handleModalSubmit = async (e)=>{
    e.preventDefault();
+
    const companyName = userData.fullname
    if(name !== '' && image_url !== '' && public_id !== '' && nationality !== '' && position !== '' && idCardExpiry !== '' && companyName !== '' && labourCardExpiry !== '' && id !== ''){
-     const {data} = await addLabour(name,nationality,image_url,public_id,position,idCardExpiry,companyName,labourCardExpiry,id,idCardNumber,labourCardNumber)
-     if(data.data){
-        setSuccessMessage('Labour Added Successfully')
-        setAddLabourModalOpen(false)
-        setSuccessOpen(true)
-        setUplodedImg(false)
-        setImgUploading(false)
-        setActiveSubmit(false)
-        setAdded(!added)
-        setImage_url(null)
-        setDuplicateEntry('')
-        e.target.reset();
-     }else{
-        setDuplicateEntry(data)
-     }
+    try {
+      const {data} = await addLabour(name,nationality,image_url,public_id,position,idCardExpiry,companyName,labourCardExpiry,id,idCardNumber,labourCardNumber)
+      if(data.data){
+         setSuccessMessage('Labour Added Successfully')
+         setAddLabourModalOpen(false)
+         setSuccessOpen(true)
+         setUplodedImg(false)
+         setImgUploading(false)
+         setActiveSubmit(false)
+         setAdded(!added)
+         setImage_url(null)
+         setDuplicateEntry('')
+         e.target.reset();
+      }else{
+         setDuplicateEntry(data)
+      }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
+    }
    }else{
      setFormError('All Fields required')
    }
@@ -262,8 +296,13 @@ const handleModalSubmit = async (e)=>{
 
 },[labourData])
 
+const navigate = useNavigate()
 
 
+const deliverTOLogin = ()=>{
+  localStorage.removeItem('adminInfo');
+  navigate('/admin/login')
+}
 
  const getFormatedDate = (date) =>{
     const parsedDate = moment(date);
@@ -323,12 +362,18 @@ const handleModalSubmit = async (e)=>{
     const public_id = editModalData.image.public_id
     const companyName = editModalData.company
     const id = editModalData.companyId
-    const {data} = await editLabour(name,nationality,image_url,public_id,position,idCardExpiry,companyName,labourCardExpiry,id,_id,idCardNumber,labourCardNumber)
-    if(data){
-      setSuccessMessage('Labour Edited Successfully')
-      setEditModalOpen(false)
-      setSuccessOpen(true)
-      setEdited(!edited)
+    try {
+      const {data} = await editLabour(name,nationality,image_url,public_id,position,idCardExpiry,companyName,labourCardExpiry,id,_id,idCardNumber,labourCardNumber)
+      if(data){
+        setSuccessMessage('Labour Edited Successfully')
+        setEditModalOpen(false)
+        setSuccessOpen(true)
+        setEdited(!edited)
+      }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
     }
 })
 
@@ -354,7 +399,9 @@ const handleDeleteButtom = async (_id,public_id)=>{
                  }
             }
           } catch (error) {
-            console.error('Error deleting image:', error);
+            if(error.response.data.message === "Invalid token"){
+              setTokenModalOpen(true)
+            }
           }
 }
 
@@ -971,6 +1018,39 @@ const handleDeleteButtom = async (_id,public_id)=>{
             </div>
         </Modal>
       )}
+
+{tokenModalOpen && (
+        <Modal open={tokenModalOpen} onClose={() => setTokenModalOpen(false)}>
+            <div className='text-center'>
+                <IoLockClosed size={56} className='mx-auto text-red-600' style={{color:"red",fontSize:"40px", width:"30px",height:"30px"}}></IoLockClosed>
+                <div className='mx-auto my-4 w-48'>
+                    <h3 className='text-lg font-thin text-gray-800 '>Your Token Expired</h3>
+                    <p className='text-lg font-thin text-gray-800 '>Please Login Again</p>
+                </div>
+                <div className="flex gap-4">
+                    
+                        <button
+                            onClick={deliverTOLogin}
+                            style={{
+                                backgroundColor: '#215AFF', // Red-500
+                                color: '#FFFFFF', 
+                                fontWeight: '300', // Thin
+                                // Shadow-lg
+                                padding: '0.25rem 1rem', // p-1
+                                width: '100%', // w-full
+                                border:"none",
+                                borderRadius: '0.375rem', // Rounded-md (default value)
+                                transition: 'background-color 0.2s ease-in-out', // Hover effect
+                                cursor: 'pointer' // Hover effect
+                            }}
+                            >
+                            Login
+                            </button>
+                    
+                </div>
+            </div>
+        </Modal>
+    )}
     </>
   );
 };

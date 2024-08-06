@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaCheck } from "react-icons/fa";
 import { SiOpenaccess } from "react-icons/si";
 import { RiImageEditLine } from "react-icons/ri";
@@ -21,6 +21,7 @@ import Breadcrumb from '../../components/adminComponents/Breadcrumb';
 import { gridSpacing } from '../../config';
 import { ChangeAdminAccessStatus, changeDocumentStatus, getNewUserDatas } from '../../api/adminAPI';
 import Modal from '../../components/modal';
+import { IoLockClosed } from "react-icons/io5";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -66,7 +67,9 @@ const DocumentsPage = () => {
 
   const [statusChangeId, setStatusChangeId] = useState('')
   const [statusChangeDocument, setStatusChangeDocument] = useState('')
+  const [tokenModalOpen, setTokenModalOpen] = useState(false)
 
+  const navigate = useNavigate()
   
   // const userId = id
   // console.log(userId)
@@ -75,11 +78,16 @@ const DocumentsPage = () => {
 
  useEffect(()=>{
   async function getNewUserData(){
-      
+    try {
       const {data} = await getNewUserDatas()
       if(data){
         setUserData(data.data)
       }
+    } catch (error) {
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
+    }
   }
   getNewUserData()
 
@@ -131,6 +139,11 @@ useEffect(()=>{
     }
   });
 },[userData,edited])
+
+const deliverTOLogin = ()=>{
+  localStorage.removeItem('adminInfo');
+  navigate('/admin/login')
+}
  
 
 
@@ -374,6 +387,39 @@ useEffect(()=>{
             </div>
         </Modal>
       )}
+
+{tokenModalOpen && (
+        <Modal open={tokenModalOpen} onClose={() => setTokenModalOpen(false)}>
+            <div className='text-center'>
+                <IoLockClosed size={56} className='mx-auto text-red-600' style={{color:"red",fontSize:"40px", width:"30px",height:"30px"}}></IoLockClosed>
+                <div className='mx-auto my-4 w-48'>
+                    <h3 className='text-lg font-thin text-gray-800 '>Your Token Expired</h3>
+                    <p className='text-lg font-thin text-gray-800 '>Please Login Again</p>
+                </div>
+                <div className="flex gap-4">
+                    
+                        <button
+                            onClick={deliverTOLogin}
+                            style={{
+                                backgroundColor: '#215AFF', // Red-500
+                                color: '#FFFFFF', 
+                                fontWeight: '300', // Thin
+                                // Shadow-lg
+                                padding: '0.25rem 1rem', // p-1
+                                width: '100%', // w-full
+                                border:"none",
+                                borderRadius: '0.375rem', // Rounded-md (default value)
+                                transition: 'background-color 0.2s ease-in-out', // Hover effect
+                                cursor: 'pointer' // Hover effect
+                            }}
+                            >
+                            Login
+                            </button>
+                    
+                </div>
+            </div>
+        </Modal>
+    )}
     </>
   );
 };

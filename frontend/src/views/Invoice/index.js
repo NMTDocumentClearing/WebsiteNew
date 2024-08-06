@@ -141,7 +141,6 @@ const DaysheetPage = () => {
           }
         } catch (error) {
           if(error.response.data.message === "Invalid token"){
-            console.log("sdgvjajavjahc");
             setTokenModalOpen(true)
           }
         }
@@ -165,7 +164,9 @@ const DaysheetPage = () => {
             setReceiptChange(!recieptChange)
         }
     } catch (error) {
-        console.log(error);
+      if(error.response.data.message === "Invalid token"){
+        setTokenModalOpen(true)
+      }
     }
 }
 

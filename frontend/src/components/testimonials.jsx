@@ -16,7 +16,7 @@ export const Testimonials = ({ data }) => {
     <div id="testimonials">
       <div className="container">
         <div className="section-title text-center">
-          <h2>What our clients say</h2>
+          <h2 style={{color:"white"}}>What our clients say</h2>
         </div>
 
         <Grid container spacing={2}>
@@ -28,7 +28,7 @@ export const Testimonials = ({ data }) => {
                     flexDirection="column"
                     justifyContent="center"
                     alignItems="center"
-                    bgcolor="rgba(255, 255, 255, 0.4)"
+                    bgcolor="#ffffff"
                     height="100%"
                     p={2}
                     borderRadius={2}
@@ -36,7 +36,7 @@ export const Testimonials = ({ data }) => {
                     minHeight="220px" // Adjust the fixed minimum height as needed
                   >
                     <Image src={d.img} alt="" />
-                    <FadeInText text={`"${d.text}"`} />
+                    <FadeInText style={{color:"#100035"}} text={`"${d.text}"`} />
                     <Typography
                       variant="subtitle1"
                       className="testimonial-meta"

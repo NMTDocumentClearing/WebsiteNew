@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 
 
-export const Visa = () => {
+export const Visa = (props) => {
     
 
     // console.log(userInfo);
@@ -12,33 +12,30 @@ export const Visa = () => {
 
   return (
     
-        <div className="business_body">
+        <div className="business_body" style={{marginTop:"100px"}}>
         <div className="business_div">
         
-            <img src="img/visa.jpg" alt="Logo" style={{ display: "block", margin: "auto", width: "70px", height: "70px", marginBottom: "5px" }} />
-            <h3 className="signin_heading">Visa Services</h3>
+            <img src="img/icon-for-business-8.jpg" alt="Logo" style={{ display: "block", margin: "auto", width: "70px", height: "70px", marginBottom: "5px" }} />
+            <h3 className="signin_heading" style={{color:"white"}}>Visa Services</h3>
 
             
-            <div style={{ display: "grid", marginTop: "20px" }}>
-                    <button type="submit" className="business_btn" style={{backgroundColor:"#215AFF",color:"white",fontWeight:"500"}}>
-                        Employment Visa
-                    </button> 
-            </div>
-            <div style={{ display: "grid", marginTop: "20px" }}>
-                    <button type="submit" className="business_btn" style={{backgroundColor:"#215AFF",color:"white",fontWeight:"500"}}>
-                        ID Services
-                    </button> 
-            </div>
-            <div style={{ display: "grid", marginTop: "20px" }}>
-                    <button type="submit" className="business_btn" style={{backgroundColor:"#215AFF",color:"white",fontWeight:"500"}}>
-                        Medical
-                    </button> 
-            </div>
-            <div style={{ display: "grid", marginTop: "20px" }}>
-                    <button type="submit" className="business_btn" style={{backgroundColor:"#215AFF",color:"white",fontWeight:"500"}}>
-                        Emigration Services
-                    </button> 
-            </div>
+            <div className="features-card-container" style={{marginBottom:"80px", marginTop:"50px"}}>
+                
+                        
+                                {props.data
+                                ? props.data.map((d, i) => (
+                                        <div key={`${d.title}-${i}`} className="features-card">
+                                                <i className={d.icon} style={{color:"#ffffff"}}></i>
+                                                <h3 style={{ color: "rgb(13, 0, 66)" }}>{d.heading}</h3>
+                                                <p>{d.text}</p>
+                                        </div>
+                                ))
+                                : "Loading..."}
+                                
+                        
+                        
+                    
+                </div>
             
         
 

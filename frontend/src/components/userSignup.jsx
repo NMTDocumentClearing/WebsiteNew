@@ -68,7 +68,7 @@ export const UsersSignup = (props) => {
   }
 
   return (
-    <div className="login_new"  style={{backgroundColor:"black"}}>
+    <div className="login_new"  style={{backgroundColor:"#100035"}}>
         <div className="login_div">
             <form onSubmit={submitHandler}>
                 <img src="img/logonmt.jpeg" alt="Logo" style={{display: "block", margin: "auto", width: "70px", height: "70px", marginBottom: "5px"}}></img>
@@ -112,6 +112,12 @@ export const UsersSignup = (props) => {
 
                 <div className="d-grid" style={{display:"grid"}}>
                     <button className="btn sign_btn btn-primary" style={{backgroundColor:'blue'}}>Register</button>
+                </div>
+
+                <div className="d-grid" style={{display:"grid", marginTop:"10px"}}>
+                    <button className="btn btn-secondary" style={{backgroundColor:"#100035", color:"white"}} onClick={() => window.location.href = '/'}>
+                        Back to Home
+                    </button>
                 </div>
 
                 <p className="text-right" style={{textAlign:"center", marginTop:"10px", color:"black"}}>

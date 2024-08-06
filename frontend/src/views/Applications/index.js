@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link,useParams } from 'react-router-dom';
+import { Link,useNavigate,useParams } from 'react-router-dom';
 import { FaCheck } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { RiImageEditLine } from "react-icons/ri";
@@ -31,6 +31,7 @@ import Modal from '../../components/modal';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { IoLockClosed } from "react-icons/io5";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -96,6 +97,13 @@ const ApplicationPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
 
   const [totalPages, setTotalPages]= useState(1)
+  const [tokenModalOpen, setTokenModalOpen] = useState(false)
+
+  const navigate = useNavigate()
+  const deliverTOLogin = ()=>{
+      localStorage.removeItem('adminInfo');
+      navigate('/admin/login')
+  }
 
   const [page, setPage] = useState(1);
   const rowsPerPage =  10;
@@ -120,7 +128,9 @@ const ApplicationPage = () => {
                 }
             }
         } catch (error) {
-            console.log(error);
+          if(error.response.data.message === "Invalid token"){
+            setTokenModalOpen(true)
+          }
         }
     }
     getAllRecentApplication()
@@ -169,7 +179,9 @@ useEffect(()=>{
             }
             
         } catch (error) {
-            console.log(error);
+          if(error.response.data.message === "Invalid token"){
+            setTokenModalOpen(true)
+          }
         }
     }
     getAllApplication()
@@ -205,7 +217,9 @@ const handleDeleteButton = async ()=>{
               }
             
           } catch (error) {
-            console.error('Error deleting image:', error);
+            if(error.response.data.message === "Invalid token"){
+              setTokenModalOpen(true)
+            }
           }
 }
 
@@ -227,7 +241,9 @@ const handleViewButton = async ()=>{
       }
       
   } catch (error) {
-    console.error('Error deleting image:', error);
+    if(error.response.data.message === "Invalid token"){
+      setTokenModalOpen(true)
+    }
   }
 }
 
@@ -245,7 +261,9 @@ const handleConfirmButtom = async ()=>{
       
     
   } catch (error) {
-    console.error('Error deleting image:', error);
+    if(error.response.data.message === "Invalid token"){
+      setTokenModalOpen(true)
+    }
   }
 }
 
@@ -1435,6 +1453,39 @@ const handleCheckboxChange = (label, checked) => {
             </div>
         </Modal>
       )}
+
+    {tokenModalOpen && (
+        <Modal open={tokenModalOpen} onClose={() => setTokenModalOpen(false)}>
+            <div className='text-center'>
+                <IoLockClosed size={56} className='mx-auto text-red-600' style={{color:"red",fontSize:"40px", width:"30px",height:"30px"}}></IoLockClosed>
+                <div className='mx-auto my-4 w-48'>
+                    <h3 className='text-lg font-thin text-gray-800 '>Your Token Expired</h3>
+                    <p className='text-lg font-thin text-gray-800 '>Please Login Again</p>
+                </div>
+                <div className="flex gap-4">
+                    
+                        <button
+                            onClick={deliverTOLogin}
+                            style={{
+                                backgroundColor: '#215AFF', // Red-500
+                                color: '#FFFFFF', 
+                                fontWeight: '300', // Thin
+                                // Shadow-lg
+                                padding: '0.25rem 1rem', // p-1
+                                width: '100%', // w-full
+                                border:"none",
+                                borderRadius: '0.375rem', // Rounded-md (default value)
+                                transition: 'background-color 0.2s ease-in-out', // Hover effect
+                                cursor: 'pointer' // Hover effect
+                            }}
+                            >
+                            Login
+                            </button>
+                    
+                </div>
+            </div>
+        </Modal>
+    )}
 
     </>
   );
